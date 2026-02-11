@@ -22,7 +22,7 @@ final class UserController extends AbstractController
         $users = $userRepository->findAll();
 
         return $this->render('user/index.html.twig', [
-            'title' => "J'ai envie de manger une bonne pizza mozzarella della mamma!",
+            'title' => "Liste des utilisateurs!",
             'users' => $users,
         ]);
     }
