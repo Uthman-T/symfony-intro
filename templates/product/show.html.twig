@@ -16,6 +16,10 @@
                 <td>{{ product.title }}</td>
             </tr>
             <tr>
+                <th>Image</th>
+                <td><img src="{{ asset('uploads/products/' ~ product.imageFilename) }}" alt=""></td>
+            </tr>
+            <tr>
                 <th>Slug</th>
                 <td>{{ product.slug }}</td>
             </tr>
@@ -25,7 +29,7 @@
             </tr>
             <tr>
                 <th>Price</th>
-                <td>{{ product.price }}</td>
+                <td>{{ product.price }} €</td>
             </tr>
             <tr>
                 <th>CreatedAt</th>

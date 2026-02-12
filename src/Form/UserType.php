@@ -19,7 +19,7 @@ class UserType extends AbstractType
         $builder
             ->add('username', TextType::class, [
                 'constraints' => [
-                    new Length(['min' => 2, 'max' => 12],
+                    new Length(['min' => 2, 'max' => 24],
                         minMessage: 'Bon, un peu plus long quand meme',
                         maxMessage: 'Sheeeesh! Ton pseudo est trop long frerot')
                 ]
