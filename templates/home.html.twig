@@ -4,4 +4,11 @@
 
 {% block body %}
     <h1>HOME PAGE</h1>
+
+    {% for product in products %}
+
+        {{ include('partials/_card.html.twig', {product}) }}
+
+    {% endfor %}
+
 {% endblock %}
