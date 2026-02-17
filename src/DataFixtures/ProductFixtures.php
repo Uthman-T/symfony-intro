@@ -34,7 +34,7 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
         for ($i = 0; $i < 10; $i++) {
             $product = new Product();
 
-            $filePath = $faker->image(dir: '/tmp', width: 640, height: 480);
+            $filePath = $faker->image(dir: '/tmp', width: 320, height: 240);
 
             if ($filePath) {
                 $ext = pathinfo($filePath, PATHINFO_EXTENSION);
