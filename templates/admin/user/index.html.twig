@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base-admin.html.twig' %}
 
 {% block title %}
     {{ title }}
@@ -26,7 +26,7 @@
                 <td>{{ user.email }}</td>
                 <td>
                     <a class="btn btn-warning" href="{{ path('app_user_show', {'id': user.id}) }}">Show</a>
- 
+
                     <a class="btn btn-secondary" href="{{ path('app_user_edit', {'id': user.id}) }}">Edit</a>
                 </td>
             </tr>
