@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Catalog Product{% endblock %}
 
 {% block body %}
-    <h1>Vous etes sur la page Home</h1>
+    <h1>Vous etes sur la page Catalog Products</h1>
 
     <section>
+
+        {{ include('partials/_pagination.html.twig') }}
+
         <h2>Les derniers produits à -50%</h2>
 
         <div class="d-flex flex-wrap gap-5">
