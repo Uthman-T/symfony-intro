@@ -1,5 +1,7 @@
 <?php
 
+// test d'integration (pour savoir si on a bien intégré des données)
+
 namespace App\Tests\Repository;
 
 use App\Repository\CategoryRepository;

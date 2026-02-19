@@ -1,5 +1,7 @@
 <?php
 
+//Test de fonctionalitées
+
 namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -33,5 +35,16 @@ class SecurityControllerTest extends WebTestCase
         $client->request('GET', '/admin/dashboard');
 
         $this->assertResponseStatusCodeSame(Response::HTTP_FORBIDDEN);
+    }
+
+    public function testAdminAuthorized(): void
+    {
+        $client = self::createClient();
+        $user = new InMemoryUser('admin', 'password', ['ROLE_ADMIN']);
+        $client->loginUser($user);
+
+        $client->request('GET', '/admin/dashboard');
+
+        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
     }
 }
