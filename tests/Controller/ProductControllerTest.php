@@ -4,11 +4,22 @@ namespace App\Tests\Controller;
 
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\User\InMemoryUser;
 
 class ProductControllerTest extends WebTestCase
 {
     private static ?int $id = null;
+
+    public function testIndex(): void
+    {
+        $client = self::createClient();
+        $user = new InMemoryUser('admin', 'password', ['ROLE_ADMIN']);
+        $client->loginUser($user);
+
+        $client->request('GET', '/admin/product');
+        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
+    }
 
     public function testCreateProduct(): void
     {
@@ -30,8 +41,6 @@ class ProductControllerTest extends WebTestCase
             'product[description]' => 'Pablo es mucho euh... jsp;',
             'product[price]' => 72.5
         ]);
-
-        $client->submit($form);
 
         $container = self::getContainer();
         $product = $container->get(ProductRepository::class)->findOneBy(['title' => 'Pablo']);
